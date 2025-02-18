@@ -1,9 +1,13 @@
-from dotenv import load_dotenv
-import os
+from pydantic import Field, SecretStr
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
-load_dotenv()
 
-langsmith_api_key = os.getenv("LANGSMITH_API_KEY")
-langsmith_api_key = os.getenv("LANGSMITH_API_KEY")
+class Settings(BaseSettings):
+    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
 
-google_ai_api_key = os.getenv("GOOGLE_AI_API_KEY")
+    GOOGLE_AI_API_KEY: SecretStr
+    LANGSMITH_TRACING: bool = Field(True)
+    LANGSMITH_API_KEY: str
+
+
+setings = Settings()  # pyright: ignore[reportCallIssue]
