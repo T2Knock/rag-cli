@@ -5,11 +5,8 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "langchain-community>=0.3.17",
-    "langchain-google-genai>=2.0.9",
-    "langchain-text-splitters>=0.3.6",
-    "langgraph>=0.2.72",
-    "langsmith>=0.3.8",
     "pydantic-settings>=2.7.1",
     "pydantic>=2.10.6",
+    "pymilvus>=2.5.4",
+    "google-generativeai>=0.8.4",
 ]
